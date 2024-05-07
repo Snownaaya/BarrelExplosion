@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class Cube : MonoBehaviour
 {
     [SerializeField] private int _minCubeCount;
@@ -17,7 +16,7 @@ public class Cube : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (RandomPrecent() <= _currentChance)
+        if (GetRandomPrecent() <= _currentChance)
         {
             SpawnCubes();
             _cubeExploder.Explode();
@@ -30,18 +29,21 @@ public class Cube : MonoBehaviour
     {
         int countCube = Random.Range(_minCubeCount, _maxCubeCount);
 
-        _randomColorizer.RandomColor();
-        CreateCubes(countCube);
-    }
-
-    private void CreateCubes(int count)
-    {
-        for (int i = 0; i < count; i++)
+        for (int i = 0; i < countCube; i++)
         {
-            Cube cube = Instantiate(this);
-            cube.transform.localScale = transform.localScale * _scaleFactor;
+            CreateCubes();
+            _randomColorizer.RandomColor();
         }
     }
 
-    private float RandomPrecent() => Random.Range(_minPrecent, _maxPrecent);
+    private void CreateCubes()
+    {
+        Cube cube = Instantiate(this);
+        cube.transform.localScale = transform.localScale * _scaleFactor;
+
+        Rigidbody cubeRigibody = cube.GetComponent<Rigidbody>();
+        _cubeExploder.AddExplosionObject(cubeRigibody);
+    }
+
+    private float GetRandomPrecent() => Random.Range(_minPrecent, _maxPrecent);
 }

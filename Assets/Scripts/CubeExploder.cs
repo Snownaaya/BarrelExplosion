@@ -7,11 +7,13 @@ public class CubeExploder : MonoBehaviour
     [SerializeField] private float _raduis;
     [SerializeField] private float _force;
 
-    private List<Rigidbody> _explosionObject = new List<Rigidbody>();
+    private List<Rigidbody> _explosionObjects = new List<Rigidbody>();
+
+    public void AddExplosionObject(Rigidbody rigidbody) => _explosionObjects.Add(rigidbody);
 
     public void Explode()
     {
-        foreach (Rigidbody explosionObject in _explosionObject)
+        foreach (Rigidbody explosionObject in _explosionObjects)
         {
             explosionObject.AddExplosionForce(_force, transform.position, _raduis);
         }
