@@ -1,22 +1,19 @@
+using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class CubeExploder : MonoBehaviour
 {
     [SerializeField] private float _raduis;
     [SerializeField] private float _force;
 
-    [SerializeField] private Rigidbody _rigidbody;
+    private List<Rigidbody> _explosionObject = new List<Rigidbody>();
 
     public void Explode()
     {
-        Collider[] hits = Physics.OverlapSphere(transform.position, _raduis);
-
-        foreach (Collider hit in hits)
+        foreach (Rigidbody explosionObject in _explosionObject)
         {
-            _rigidbody = hit.attachedRigidbody;
-
-            if (_rigidbody)
-                _rigidbody.AddExplosionForce(_force, transform.position, _raduis);
+            explosionObject.AddExplosionForce(_force, transform.position, _raduis);
         }
     }
 }

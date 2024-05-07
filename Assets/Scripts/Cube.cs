@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Cube : MonoBehaviour
 {
-    private const float SplitChanceDivisor = 2.0f;
-
     [SerializeField] private int _minCubeCount;
     [SerializeField] private int _maxCubeCount;
     [SerializeField] private float _scaleFactor = 0.5f;
@@ -22,7 +20,6 @@ public class Cube : MonoBehaviour
         if (RandomPrecent() <= _currentChance)
         {
             SpawnCubes();
-            _currentChance /= SplitChanceDivisor;
             _cubeExploder.Explode();
         }
 
