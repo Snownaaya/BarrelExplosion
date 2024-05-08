@@ -158,6 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f08fb3290964b249a598689da1aa24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _renderer: {fileID: 344505981}
 --- !u!114 &344505977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _raduis: 50
-  _force: 300
+  _force: 100
 --- !u!114 &344505978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,7 +189,6 @@ MonoBehaviour:
   _maxCubeCount: 6
   _scaleFactor: 0.5
   _currentChance: 100
-  _randomColorizer: {fileID: 344505976}
   _cubeExploder: {fileID: 344505977}
 --- !u!54 &344505979
 Rigidbody:
@@ -748,6 +748,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f08fb3290964b249a598689da1aa24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _renderer: {fileID: 1607699066}
 --- !u!114 &1607699062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -761,7 +762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _raduis: 50
-  _force: 300
+  _force: 100
 --- !u!114 &1607699063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -778,7 +779,6 @@ MonoBehaviour:
   _maxCubeCount: 6
   _scaleFactor: 0.5
   _currentChance: 100
-  _randomColorizer: {fileID: 1607699061}
   _cubeExploder: {fileID: 1607699062}
 --- !u!54 &1607699064
 Rigidbody:

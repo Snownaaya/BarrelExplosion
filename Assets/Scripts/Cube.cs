@@ -8,7 +8,6 @@ public class Cube : MonoBehaviour
     [SerializeField] private float _scaleFactor = 0.5f;
     [SerializeField] private float _currentChance = 100f;
 
-    [SerializeField] private RandomColorizer _randomColorizer;
     [SerializeField] private CubeExploder _cubeExploder;
 
     private float _minPrecent = 0f;
@@ -29,20 +28,19 @@ public class Cube : MonoBehaviour
     {
         int countCube = Random.Range(_minCubeCount, _maxCubeCount);
 
-        for (int i = 0; i < countCube; i++)
-        {
-            CreateCubes();
-            _randomColorizer.RandomColor();
-        }
+        CreateCubes(countCube);
     }
 
-    private void CreateCubes()
+    private void CreateCubes(int count)
     {
-        Cube cube = Instantiate(this);
-        cube.transform.localScale = transform.localScale * _scaleFactor;
+        for (int i = 0; i < count; i++)
+        {
+            Cube cube = Instantiate(this);
+            cube.transform.localScale = transform.localScale * _scaleFactor;
 
-        Rigidbody cubeRigibody = cube.GetComponent<Rigidbody>();
-        _cubeExploder.AddExplosionObject(cubeRigibody);
+            Rigidbody cubeRigibody = cube.GetComponent<Rigidbody>();
+            _cubeExploder.AddExplosionObject(cubeRigibody);
+        }
     }
 
     private float GetRandomPrecent() => Random.Range(_minPrecent, _maxPrecent);

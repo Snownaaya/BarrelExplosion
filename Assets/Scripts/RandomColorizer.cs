@@ -3,9 +3,9 @@ using UnityEngine;
 [RequireComponent(typeof(Renderer))]
 public class RandomColorizer : MonoBehaviour
 {
-    private Renderer _renderer;
+    [SerializeField] private Renderer _renderer;
 
-    private void Start() => _renderer = GetComponent<Renderer>();
+    private void Start() => RandomColor();
 
-    public void RandomColor() => _renderer.material.color = Random.ColorHSV();
+    private void RandomColor() => _renderer.material.color = Random.ColorHSV();
 }
