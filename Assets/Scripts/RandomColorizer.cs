@@ -5,7 +5,7 @@ public class RandomColorizer : MonoBehaviour
 {
     [SerializeField] private Renderer _renderer;
 
-    private void Start() => RandomColor();
+    private void Start() => GetRandomColor();
 
-    private void RandomColor() => _renderer.material.color = Random.ColorHSV();
+    private void GetRandomColor() => _renderer.material.color = Random.ColorHSV();
 }

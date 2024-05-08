@@ -8,7 +8,7 @@ public class Cube : MonoBehaviour
     [SerializeField] private float _scaleFactor = 0.5f;
     [SerializeField] private float _currentChance = 100f;
 
-    [SerializeField] private CubeExploder _cubeExploder;
+    [SerializeField] private CubeExploder _exploder;
 
     private float _minPrecent = 0f;
     private float _maxPrecent = 100f;
@@ -18,7 +18,7 @@ public class Cube : MonoBehaviour
         if (GetRandomPrecent() <= _currentChance)
         {
             SpawnCubes();
-            _cubeExploder.Explode();
+            _exploder.Explode();
         }
 
         Destroy(gameObject);
@@ -39,7 +39,7 @@ public class Cube : MonoBehaviour
             cube.transform.localScale = transform.localScale * _scaleFactor;
 
             Rigidbody cubeRigibody = cube.GetComponent<Rigidbody>();
-            _cubeExploder.AddExplosionObject(cubeRigibody);
+            _exploder.AddExplosionObject(cubeRigibody);
         }
     }
 
