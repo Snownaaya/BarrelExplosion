@@ -9,13 +9,34 @@ public class CubeExploder : MonoBehaviour
 
     private List<Rigidbody> _explosionObjects = new List<Rigidbody>();
 
-    public void AddExplosionObject(Rigidbody rigidbody) => _explosionObjects.Add(rigidbody);
+    public List<Rigidbody> AddExplosionObject()
+    {
+        Collider[] hits = Physics.OverlapSphere(transform.position, _raduis);
+
+
+        foreach (Collider hit in hits)
+        {
+            Rigidbody rigidbody = hit.attachedRigidbody;
+
+            if (rigidbody)
+                _explosionObjects.Add(rigidbody);
+        }
+
+        return _explosionObjects;
+    }
 
     public void Explode()
     {
-        foreach (Rigidbody explosionObject in _explosionObjects)
+        foreach (Rigidbody explosionObject in AddExplosionObject())
         {
-            explosionObject.AddExplosionForce(_force, transform.position, _raduis);
+            float distance = Vector3.Distance(transform.position, explosionObject.position);
+
+            if (distance > 0 && transform.localScale.x > 0)
+            {
+                float explosionForce = _force / (distance * transform.localScale.x);
+
+                explosionObject.AddExplosionForce(explosionForce, transform.position, _raduis);
+            }
         }
     }
 }

@@ -37,9 +37,6 @@ public class Cube : MonoBehaviour
         {
             Cube cube = Instantiate(this);
             cube.transform.localScale = transform.localScale * _scaleFactor;
-
-            Rigidbody cubeRigibody = cube.GetComponent<Rigidbody>();
-            _exploder.AddExplosionObject(cubeRigibody);
         }
     }
 

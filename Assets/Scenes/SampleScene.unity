@@ -189,7 +189,7 @@ MonoBehaviour:
   _maxCubeCount: 6
   _scaleFactor: 0.5
   _currentChance: 100
-  _cubeExploder: {fileID: 344505977}
+  _exploder: {fileID: 344505977}
 --- !u!54 &344505979
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -779,7 +779,7 @@ MonoBehaviour:
   _maxCubeCount: 6
   _scaleFactor: 0.5
   _currentChance: 100
-  _cubeExploder: {fileID: 1607699062}
+  _exploder: {fileID: 1607699062}
 --- !u!54 &1607699064
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -959,7 +959,7 @@ MonoBehaviour:
   _maxCubeCount: 6
   _scaleFactor: 0.5
   _currentChance: 100
-  _cubeExploder: {fileID: 1993962049}
+  _exploder: {fileID: 1993962049}
 --- !u!54 &1993962051
 Rigidbody:
   m_ObjectHideFlags: 0
